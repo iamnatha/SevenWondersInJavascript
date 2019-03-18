@@ -1,0 +1,18 @@
+{
+  "name": "TP_JS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  },
+  "script": {
+  "start": "node index.js",
+  "test": "mocha"
+  },
+  "xo": {
+    "space": 2,
+    "prettier": true
+  }
+}
