@@ -5,11 +5,12 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^6.0.2"
   },
-  "script": {
-  "start": "node index.js",
-  "test": "mocha"
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "mocha"
   },
   "xo": {
     "space": 2,
