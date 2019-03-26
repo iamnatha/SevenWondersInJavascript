@@ -62,3 +62,6 @@ typings/
 
 # Sujet TP
 Sujet_TP.pdf
+
+#webstorm ide
+.idea/
