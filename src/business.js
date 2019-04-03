@@ -1,11 +1,11 @@
-var Commerce = {
+class Business {
 
-    init: function(corn, gold){
+    init(corn, gold){
         this.corn = corn;
         this.gold = gold;
-    },
+    }
 
-    vendre: function(corn, prixParRessource, Acheteur){
+    vendre(corn, prixParRessource, Acheteur){
 
         if(Math.random() > 0.95){
             // Si les commercant se font attaquer
@@ -23,9 +23,9 @@ var Commerce = {
 
         }
 
-    },
+    }
 
-    acheter: function(corn, quantite, prixRessource, Vendeur){
+    acheter(corn, quantite, prixRessource, Vendeur){
 
         // Petite fluctuation de marché
         if(Math.random() > 0.75) {
@@ -36,9 +36,9 @@ var Commerce = {
             Vendeur.gold = Vendeur.gold + prixParRessourcegit  * corn;
         }
 
-    },
+    }
 
-    seFaireAttaquer: function(cornDuCommerce){
+    seFaireAttaquer(cornDuCommerce){
         this.corn = this.corn - cornDuCommerce;
         Console.log("Ressource perdu pendant le voyage du commerce: " + cornDuCommerce + " corn");
         Console.log("Il vous reste donc " + this.corn);
