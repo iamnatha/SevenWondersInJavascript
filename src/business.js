@@ -1,20 +1,17 @@
 var Commerce = {
 
-    init: function(produitAgricoleRessource, produitArtisanalRessource, produitDeLaMerRessource, produitDeDetailRessource, budgetCite){
-        this.produitAgricoleRessource = produitAgricoleRessource;
-        this.produitArtisanalRessource = produitArtisanalRessource;
-        this.produitDeLaMerRessource = produitDeLaMerRessource;
-        this.produitDeDetailRessource = produitDeDetailRessource;
-        this.budgetCite = budgetCite;
+    init: function(corn, gold){
+        this.corn = corn;
+        this.gold = gold;
     },
 
-    vendre: function(ressourceAVendre, quantite, prixDeVenteParRessource, commerceAcheteur){
+    vendre: function(corn, quantite, prixDeVenteParRessource, commerceAcheteur){
 
         // On fera appel ici à la fonction seFaireAttaquer avec une condition Math.random
         // Si il se font pas attaquer, alors ils vende, et donc une autre cite achete. -> Faire appel à la fonction acheter
     },
 
-    acheter: function(ressourceAAcheter, quantite, prixDeAchatParRessource, commerceVendeur){
+    acheter: function(corn, quantite, prixDeAchatParRessource, commerceVendeur){
 
     },
 
