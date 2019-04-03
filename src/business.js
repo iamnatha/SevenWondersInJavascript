@@ -5,18 +5,43 @@ var Commerce = {
         this.gold = gold;
     },
 
-    vendre: function(corn, quantite, prixDeVenteParRessource, commerceAcheteur){
+    vendre: function(corn, prixParRessource, Acheteur){
 
-        // On fera appel ici à la fonction seFaireAttaquer avec une condition Math.random
-        // Si il se font pas attaquer, alors ils vende, et donc une autre cite achete. -> Faire appel à la fonction acheter
+        if(Math.random() > 0.95){
+            // Si les commercant se font attaquer
+            seFaireAttaquer(corn);
+        } else{
+            // Sinon
+            // Petite fluctuation de marché
+            if(Math.random() > 0.75) {
+                this.gold = this.gold + 2 *prixParRessource * corn;
+                Acheteur.gold = Acheteur.gold - 2 * prixParRessource * corn;
+            } else{
+                this.gold = this.gold + prixParRessource * corn;
+                Acheteur.gold = Acheteur.gold - prixParRessource * corn;
+            }
+
+        }
+
     },
 
-    acheter: function(corn, quantite, prixDeAchatParRessource, commerceVendeur){
+    acheter: function(corn, quantite, prixRessource, Vendeur){
+
+        // Petite fluctuation de marché
+        if(Math.random() > 0.75) {
+            this.gold = this.gold - 2 *prixParRessource * corn;
+            Vendeur.gold = Vendeur.gold + 2 * prixParRessource * corn;
+        } else{
+            this.gold = this.gold - prixParRessource * corn;
+            Vendeur.gold = Vendeur.gold + prixParRessourcegit  * corn;
+        }
 
     },
 
-    seFaireAttaquer: function(){
-        // Si les commercant se font attaquer, alors il perde des ressources qu'ils ont essayé de vendre
+    seFaireAttaquer: function(cornDuCommerce){
+        this.corn = this.corn - cornDuCommerce;
+        Console.log("Ressource perdu pendant le voyage du commerce: " + cornDuCommerce + " corn");
+        Console.log("Il vous reste donc " + this.corn);
     }
 
 }
