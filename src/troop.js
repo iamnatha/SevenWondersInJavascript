@@ -80,8 +80,28 @@ class Troop {
         }
     }
 
+    // On s'arrete ici
     attaquerVille(villeCible){
+        var nbSoldatT1 = this.troup.length;
+        var nbSoldatT2 = troupCible.troop.length;
 
+        if(nbSoldatT1 >= nbSoldatT2) {
+
+            var rapportDeForce = nbSoldatT2 / nbSoldatT1;
+
+            if (rapportDeForce < Math.random()) { //
+                console.log("Victoire de la troupe qui attaque!!!!");
+
+                var n = 0;
+                var poucentageBlesse = this.troup.length * Math.random();
+
+
+                while (n < poucentageBlesse) {
+                    this.troup[n].degat(25);
+                    n = n + 1;
+                }
+            }
+        }
     }
 
     defendreVille(){

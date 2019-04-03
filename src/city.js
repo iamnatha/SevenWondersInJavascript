@@ -1,20 +1,20 @@
 class City {
 
     init(divinity, commerce, troop){
-        this.divinity = divinity;
-        this.commerce = commerce;
-        this.troop = troop;
+        this.divinityVille = divinity;
+        this.commerceVille = commerce;
+        this.troopVille = troop;
     }
 
-    get divinity() {
+    get divinityVille() {
         return this.divinity;
     }
 
-    get commerce() {
+    get commerceVille() {
         return this.commerce;
     }
 
-    get troop() {
+    get troopVille() {
         return this.troop;
     }
 
