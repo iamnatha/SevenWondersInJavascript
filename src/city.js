@@ -9,7 +9,14 @@ class City {
       this.commerceVille.gold += g.gold;
       this.commerceVille.corn += g.corn;
     });
+
+    this.divinityVille.worldEvents.on('blessing', g => {
+      this.commerceVille.gold += g.gold;
+      this.commerceVille.corn += g.corn;
+    });
   }
+
+
 
   get divinity() {
     return this.divinityVille;
