@@ -11,6 +11,7 @@ class Soldat{
 
     degat(degatSoldat){
         this.vie = this.vie - degatSoldat;
+
     }
 
 }
