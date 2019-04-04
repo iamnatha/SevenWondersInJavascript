@@ -138,7 +138,8 @@ class Troop {
     }
 
     console.log(
-      poucentageBlesse / this.troup.length * 100 + "% des troupes ont été blessé pendant l'attaque"
+      (poucentageBlesse / this.troup.length) * 100 +
+        "% des troupes ont été blessé pendant l'attaque"
     );
   }
 
