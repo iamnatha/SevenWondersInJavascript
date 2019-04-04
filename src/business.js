@@ -31,11 +31,14 @@ class Business {
                 Acheteur.gold = Acheteur.gold - 2 * prixParRessource * corn;
                 Acheteur.corn = Acheteur.corn + corn;
                 this.corn = this.corn - corn;
+                console.log("Le prix du blé a augmenté. Il coûte actuellement: "+ 2 * prixParRessource +" gold")
             } else{
                 this.gold = this.gold + prixParRessource * corn;
                 Acheteur.gold = Acheteur.gold - prixParRessource * corn;
                 Acheteur.corn = Acheteur.corn + corn;
                 this.corn = this.corn - corn;
+                console.log("Le blé coûte actuellement: "+ prixParRessource +" gold")
+
             }
 
         }
@@ -48,9 +51,12 @@ class Business {
         if(Math.random() > 0.75) {
             this.gold = this.gold - 2 *prixParRessource * corn;
             Vendeur.gold = Vendeur.gold + 2 * prixParRessource * corn;
+            console.log("Le prix du blé a augmenté. Il coûte actuellement: "+ 2 * prixParRessource +" gold")
         } else{
             this.gold = this.gold - prixParRessource * corn;
             Vendeur.gold = Vendeur.gold + prixParRessourcegit  * corn;
+            console.log("Le blé coûte actuellement: "+ prixParRessource +" gold")
+
         }
 
     }
