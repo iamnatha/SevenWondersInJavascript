@@ -98,8 +98,8 @@ class Troop {
                 while (n < poucentageBlesse) {
                     this.troup[n].degat(25);
                     n = n + 1;
-
                 }
+                checkLife();
                 console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
 
             } else {
@@ -128,6 +128,7 @@ class Troop {
                     this.troup[n].degat(25);
                     n = n + 1;
                 }
+                checkLife();
                 console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
 
             }
@@ -156,6 +157,13 @@ class Troop {
                 n = n + 1;
             }
         }
+
+        checkLife(){
+                for( var i = troup.length-1; i--;){
+                    if ( troup[i].vie <= 0 ) list.splice(i, 1);
+                }
+            }
+
 
 }
 
