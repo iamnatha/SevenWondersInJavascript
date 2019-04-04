@@ -42,11 +42,4 @@ ville2.init(divinity2, commerce2, troup2);
     console.log("Vengance de la ville 2: Ville 2 pille la ville 1");
     ville1.troopVille.attaquerTroup(ville1.troopVille);
 
-setTimeout(() => {
-    console.log("Ressource de la ville 1: " + ville1.commerceVille.corn + " corns et " + ville1.commerceVille.gold + " golds");
-    console.log("Ressource de la ville 2: " + ville2.commerceVille.corn + " corns et " + ville2.commerceVille.gold + " golds");
-
-    ville1.divinity.endWorld();
-    ville2.divinity.endWorld();
-}, 2000)
 // }
