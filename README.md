@@ -20,11 +20,11 @@ AGOSTINI Arthur
 Chaque ville posséde une divinity, une troupe et un commerce.
 
 Vous trouverez:  
-    - une classe divinity  :pray:
-    - une classe business  :moneybag: :corn:
-    - une classe troop     :guardsman:
-    - une classe soldat    :trollface:
-    - une classe city      :european_castle:
+    - une classe divinity  :pray:  
+    - une classe business  :moneybag: :corn:  
+    - une classe troop     :guardsman:  
+    - une classe soldat    :trollface:  
+    - une classe city      :european_castle:  
     
 La classe businness contient le nombre d'or et le nombre de mais.
 Elle permet de vendre, d'acheter du mais avec un risque de se faire attaquer. 
