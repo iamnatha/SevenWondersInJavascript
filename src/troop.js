@@ -147,6 +147,14 @@ class Troop {
 
         }
 
+        AjouterSoldat(NbrSoldatAjouter){
+            var n=0;
+            while (n <= NbrSoldatAjouter) {
+                this.troup.push(new Soldat(100, 100));
+                n = n + 1;
+            }
+        }
+
 }
 
 module.exports = {Troop};
