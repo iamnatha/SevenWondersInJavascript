@@ -15,7 +15,7 @@ AGOSTINI Arthur
 
 4. `$ yarn start`
 
-# Etape 2: Explication du projet`
+# Etape 2: Explication du projet
 
 Chaque ville posséde une divinity, une troupe et un commerce.
 
