@@ -1,8 +1,9 @@
 class City {
-  init(divinity, buisness, troop) {
+  init(divinity, buisness, troop, name) {
     this.divinityVille = divinity;
     this.commerceVille = buisness;
     this.troopVille = troop;
+    this.name = name;
 
     this.divinityVille.worldEvents.on('favor', g => {
       this.commerceVille.gold += g.gold;

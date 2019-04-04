@@ -18,33 +18,31 @@ class Business {
   }
 
   vendre(corn, prixParRessource, Acheteur) {
-    if (Math.random() > 0.95) {
+    if (Math.random() > 0.5) {
       // Si les commercant se font attaquer
       this.seFaireAttaquer(corn);
-    } else {
+    } else if (Math.random() > 0.75) {
       // Sinon
       // Petite fluctuation de marché
-      if (Math.random() > 0.75) {
-        this.gold = this.gold + 2 * prixParRessource * corn;
-        Acheteur.gold -= 2 * prixParRessource * corn;
-        Acheteur.corn += corn;
-        this.corn = this.corn - corn;
-        console.log(
-          'Le prix du blé a augmenté. Il coûte actuellement: ' +
-            2 * prixParRessource +
-            ' gold'
-        );
-      } else {
-        this.gold = this.gold + prixParRessource * corn;
-        Acheteur.gold -= prixParRessource * corn;
-        Acheteur.corn += corn;
-        this.corn = this.corn - corn;
-        console.log('Le blé coûte actuellement: ' + prixParRessource + ' gold');
-      }
+      this.gold = this.gold + 2 * prixParRessource * corn;
+      Acheteur.gold -= 2 * prixParRessource * corn;
+      Acheteur.corn += corn;
+      this.corn = this.corn - corn;
+      console.log(
+        'Le prix du blé a augmenté. Il coûte actuellement: ' +
+          2 * prixParRessource +
+          ' gold'
+      );
+    } else {
+      this.gold = this.gold + prixParRessource * corn;
+      Acheteur.gold -= prixParRessource * corn;
+      Acheteur.corn += corn;
+      this.corn = this.corn - corn;
+      console.log('Le blé coûte actuellement: ' + prixParRessource + ' gold');
     }
   }
 
-  acheter(corn, quantite, prixRessource, Vendeur) {
+  acheter(corn, quantite, prixParRessource, Vendeur) {
     // Petite fluctuation de marché
     if (Math.random() > 0.75) {
       this.gold = this.gold - 2 * prixParRessource * corn;
@@ -56,19 +54,19 @@ class Business {
       );
     } else {
       this.gold = this.gold - prixParRessource * corn;
-      Vendeur.gold += prixParRessourcegit * corn;
+      Vendeur.gold += prixParRessource * corn;
       console.log('Le blé coûte actuellement: ' + prixParRessource + ' gold');
     }
   }
 
   seFaireAttaquer(cornDuCommerce) {
     this.corn = this.corn - cornDuCommerce;
-    Console.log(
+    console.log(
       'Ressource perdu pendant le voyage du commerce: ' +
         cornDuCommerce +
         ' corn'
     );
-    Console.log('Il vous reste donc ' + this.corn);
+    console.log('Il vous reste donc ' + this.corn);
   }
 }
 

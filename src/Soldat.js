@@ -5,7 +5,7 @@ class Soldat {
     this.lifeTime = lifeTime;
     setTimeout(() => {
       this.vie = 0;
-    }, lifeTime * 1);
+    }, lifeTime * 1000);
   }
 
   degat(degatSoldat) {

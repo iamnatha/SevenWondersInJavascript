@@ -9,8 +9,8 @@
     "mocha": "^6.0.2"
   },
   "scripts": {
-  "start": "node src/index.js",
-  "test": "mocha"
+    "start": "node src/index.js",
+    "test": "mocha"
   },
   "xo": {
     "space": 2,
