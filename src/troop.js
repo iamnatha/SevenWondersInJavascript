@@ -98,7 +98,10 @@ class Troop {
                 while (n < poucentageBlesse) {
                     this.troup[n].degat(25);
                     n = n + 1;
+
                 }
+                console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
+
             } else {
 
                 defendreVille();
@@ -125,6 +128,7 @@ class Troop {
                     this.troup[n].degat(25);
                     n = n + 1;
                 }
+                console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
 
             }
         }
@@ -141,6 +145,7 @@ class Troop {
                 this.troup[n].degat(25);
                 n = n + 1;
             }
+            console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
 
         }
 
