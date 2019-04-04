@@ -27,12 +27,12 @@ Vous trouverez:
     - une classe city      :european_castle:  
     
 La classe businness contient le nombre d'or et le nombre de mais.
-Elle permet de vendre, d'acheter du mais avec un risque de se faire attaquer. 
+Elle permet de ToSell, d'ToBuy du mais avec un risque de se faire attaquer. 
 
-La classe troop contient une liste de soldat et elle est capable d'attaquer des troup advserde, 
+La classe troop contient une liste de soldat et elle est capable d'attaquer des troop advserde, 
 attaquer une ville adverse et défendre leurs ville respective.
 
-La classe soldat défini un soldat avec une vie et une lifetime pour la veillesse 
+La classe soldat défini un soldat avec une life et une lifetime pour la veillesse 
 
 La classe city contient une troupe, un business et une divinity.
 

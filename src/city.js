@@ -1,33 +1,33 @@
 class City {
-  init(divinity, buisness, troop, name) {
-    this.divinityVille = divinity;
-    this.commerceVille = buisness;
-    this.troopVille = troop;
+  init(divinity, business, troop, name) {
+    this.CityDivinity = divinity;
+    this.CityBuisness = business;
+    this.CityTroop = troop;
     this.name = name;
 
-    this.divinityVille.worldEvents.on('favor', g => {
-      this.commerceVille.gold += g.gold;
-      this.commerceVille.corn += g.corn;
+    this.CityDivinity.worldEvents.on('favor', g => {
+      this.CityBuisness.gold += g.gold;
+      this.CityBuisness.corn += g.corn;
     });
 
-    this.divinityVille.worldEvents.on('blessing', g => {
-      this.commerceVille.gold += g.gold;
-      this.commerceVille.corn += g.corn;
+    this.CityDivinity.worldEvents.on('blessing', g => {
+      this.CityBuisness.gold += g.gold;
+      this.CityBuisness.corn += g.corn;
     });
   }
 
 
 
   get divinity() {
-    return this.divinityVille;
+    return this.CityDivinity;
   }
 
-  get buisness() {
-    return this.commerceVille;
+  get business() {
+    return this.CityBuisness;
   }
 
   get troop() {
-    return this.troopVille;
+    return this.CityTroop;
   }
 }
 

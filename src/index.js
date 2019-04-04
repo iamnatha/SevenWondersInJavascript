@@ -14,33 +14,33 @@ divinity2.init();
 divinity2.offeringCorn(10);
 divinity2.offeringGold(10);
 
-const commerce1 = new Business();
-const commerce2 = new Business();
+const Business1 = new Business();
+const Business2 = new Business();
 
-commerce1.init(1000, 1000);
-commerce2.init(1000, 1000);
+Business1.init(1000, 1000);
+Business2.init(1000, 1000);
 
-const troup1 = new Troop();
-const troup2 = new Troop();
+const troop1 = new Troop();
+const troop2 = new Troop();
 
-troup1.init(20, 100, 50);
-troup2.init(20, 100, 70);
+troop1.init(20, 100, 50);
+troop2.init(20, 100, 70);
 
-const ville1 = new City();
-const ville2 = new City();
+const city1 = new City();
+const city2 = new City();
 
-ville1.init(divinity1, commerce1, troup1, 'ville 1');
-ville2.init(divinity2, commerce2, troup2, 'ville 2');
+city1.init(divinity1, Business1, troop1, 'ville 1');
+city2.init(divinity2, Business2, troop2, 'ville 2');
 
-const checkVilles = () => {
+const CheckCity = () => {
   return (
-    commerce1.corn > 0 &&
-    commerce1.gold > 0 &&
-    (commerce2.corn > 0 && commerce2.gold > 0)
+    Business1.corn > 0 &&
+    Business1.gold > 0 &&
+    (Business2.corn > 0 && Business2.gold > 0)
   );
 };
 
-const villeRandom = (villeA, villeB) => {
+const RandomCity = (villeA, villeB) => {
   if (Math.random() > 0.5) {
     return [villeA, villeB];
   }
@@ -48,7 +48,7 @@ const villeRandom = (villeA, villeB) => {
   return [villeB, villeA];
 };
 
-const finPartie = () => {
+const GameOver = () => {
 
   console.log("\n" +
       "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
@@ -76,39 +76,39 @@ const finPartie = () => {
       "┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼\n" +
       "┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼\n" +
       "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n")
-  console.log('Fin de la partie apres ' + chapitre + ' chapitres');
+  console.log('Fin de la partie apres ' + chapter + ' chapitres');
   console.log(
     'Ressource de la ville 1: ' +
-      ville1.commerceVille.corn +
+      city1.CityBuisness.corn +
       ' corns et ' +
-      ville1.commerceVille.gold +
+      city1.CityBuisness.gold +
       ' golds'
   );
   console.log(
     'Ressource de la ville 2: ' +
-      ville2.commerceVille.corn +
+      city2.CityBuisness.corn +
       ' corns et ' +
-      ville2.commerceVille.gold +
+      city2.CityBuisness.gold +
       ' golds'
   );
-  ville1.divinity.endWorld();
-  ville2.divinity.endWorld();
+  city1.divinity.endWorld();
+  city2.divinity.endWorld();
 };
 
-let chapitre = 1;
+let chapter = 1;
 const main = setInterval(() => {
-  console.log('\n********** Chapitre ' + chapitre + ' **********');
-  let [villeA, villeB] = villeRandom(ville1, ville2);
-  console.log(villeA.name + ' attaque ' + villeB.name);
-  villeA.troopVille.attaquerVille(villeB);
-  if (checkVilles()) {
+  console.log('\n********** Chapitre ' + chapter + ' **********');
+  let [CityA, CityB] = RandomCity(city1, city2);
+  console.log(CityA.name + ' attaque ' + CityB.name);
+  CityA.CityTroop.CityAttack(CityB);
+  if (CheckCity()) {
     console.log(
       'Ressource de ' +
-        villeB.name +
+        CityB.name +
         ': ' +
-        villeB.commerceVille.corn +
+        CityB.CityBuisness.corn +
         ' corns et ' +
-        villeB.commerceVille.gold +
+        CityB.CityBuisness.gold +
         ' golds'
     );
     console.log(
@@ -116,48 +116,48 @@ const main = setInterval(() => {
     );
   } else {
     clearInterval(main);
-    finPartie();
+    GameOver();
     return;
   }
 
-  [villeA, villeB] = villeRandom(ville1, ville2);
-  console.log(villeA.name + ' vend du corn a ' + villeB.name);
-  villeA.commerceVille.vendre(15, 10, villeB.commerceVille);
-  if (checkVilles()) {
+  [CityA, CityB] = RandomCity(city1, city2);
+  console.log(CityA.name + ' vend du corn a ' + CityB.name);
+  CityA.CityBuisness.ToSell(15, 10, CityB.CityBuisness);
+  if (CheckCity()) {
     console.log(
       'Ressource de la ville 1: ' +
-        ville1.commerceVille.corn +
+        city1.CityBuisness.corn +
         ' corns et ' +
-        ville1.commerceVille.gold +
+        city1.CityBuisness.gold +
         ' golds'
     );
     console.log(
       'Ressource de la ville 2: ' +
-        ville2.commerceVille.corn +
+        city2.CityBuisness.corn +
         ' corns et ' +
-        ville2.commerceVille.gold +
+        city2.CityBuisness.gold +
         ' golds'
     );
   } else {
     clearInterval(main);
-    finPartie();
+    GameOver();
     return;
   }
 
-  [villeA, villeB] = villeRandom(ville1, ville2);
+  [CityA, CityB] = RandomCity(city1, city2);
   console.log(
-    'Vengance de ' + villeA.name + ': ' + villeB.name + ' est pillée'
+    'Vengance de ' + CityA.name + ': ' + CityB.name + ' est pillée'
   );
-  villeA.troopVille.attaquerVille(villeB);
-  [villeA, villeB] = villeRandom(ville1, ville2);
-  console.log(villeA.name + ' recrute des troupes');
-  villeA.troop.ajouterSoldat(200, villeB);
+  CityA.CityTroop.TroopAttack(CityB.troop);
+  [CityA, CityB] = RandomCity(city1, city2);
+  console.log(CityA.name + ' recrute des troupes');
+  CityA.troop.AddSoldier(200, CityB);
 
-  if (!checkVilles()) {
+  if (!CheckCity()) {
     clearInterval(main);
-    finPartie();
+    GameOver();
     return;
   }
 
-  chapitre += 1;
+  chapter += 1;
 }, 100);

@@ -12,58 +12,58 @@ class Business {
     this.corn_ = corn;
   }
 
-  seFairePiller(ressourcePille) {
+  BeLooted(ressourcePille) {
     this.corn = this.corn - ressourcePille;
     this.gold = this.gold - ressourcePille;
   }
 
-  vendre(corn, prixParRessource, Acheteur) {
+  ToSell(corn, ResourcesPrice, Buyer) {
     if (Math.random() > 0.5) {
       // Si les commercant se font attaquer
-      this.seFaireAttaquer(corn);
+      this.BeAttacked(corn);
     } else if (Math.random() > 0.75) {
       // Sinon
       // Petite fluctuation de marché
-      this.gold = this.gold + 2 * prixParRessource * corn;
-      Acheteur.gold -= 2 * prixParRessource * corn;
-      Acheteur.corn += corn;
+      this.gold = this.gold + 2 * ResourcesPrice * corn;
+      Buyer.gold -= 2 * ResourcesPrice * corn;
+      Buyer.corn += corn;
       this.corn = this.corn - corn;
       console.log(
         'Le prix du blé a augmenté. Il coûte actuellement: ' +
-          2 * prixParRessource +
+          2 * ResourcesPrice +
           ' gold'
       );
     } else {
-      this.gold = this.gold + prixParRessource * corn;
-      Acheteur.gold -= prixParRessource * corn;
-      Acheteur.corn += corn;
+      this.gold = this.gold + ResourcesPrice * corn;
+      Buyer.gold -= ResourcesPrice * corn;
+      Buyer.corn += corn;
       this.corn = this.corn - corn;
-      console.log('Le blé coûte actuellement: ' + prixParRessource + ' gold');
+      console.log('Le blé coûte actuellement: ' + ResourcesPrice + ' gold');
     }
   }
 
-  acheter(corn, quantite, prixParRessource, Vendeur) {
+  ToBuy(corn, quantity, ResourcesPrice, Seller) {
     // Petite fluctuation de marché
     if (Math.random() > 0.75) {
-      this.gold = this.gold - 2 * prixParRessource * corn;
-      Vendeur.gold += 2 * prixParRessource * corn;
+      this.gold = this.gold - 2 * ResourcesPrice * corn;
+      Seller.gold += 2 * ResourcesPrice * corn;
       console.log(
         'Le prix du blé a augmenté. Il coûte actuellement: ' +
-          2 * prixParRessource +
+          2 * ResourcesPrice +
           ' gold'
       );
     } else {
-      this.gold = this.gold - prixParRessource * corn;
-      Vendeur.gold += prixParRessource * corn;
-      console.log('Le blé coûte actuellement: ' + prixParRessource + ' gold');
+      this.gold = this.gold - ResourcesPrice * corn;
+      Seller.gold += ResourcesPrice * corn;
+      console.log('Le blé coûte actuellement: ' + ResourcesPrice + ' gold');
     }
   }
 
-  seFaireAttaquer(cornDuCommerce) {
-    this.corn = this.corn - cornDuCommerce;
+  BeAttacked(BuisnessCorn) {
+    this.corn = this.corn - BuisnessCorn;
     console.log(
       'Ressource perdu pendant le voyage du commerce: ' +
-        cornDuCommerce +
+        BuisnessCorn +
         ' corn'
     );
     console.log('Il vous reste donc ' + this.corn);

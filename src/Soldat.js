@@ -1,16 +1,16 @@
-class Soldat {
-  // LifeTime commence à 100, on décrément et à 0, vie = 0
-  init(vie, lifeTime) {
-    this.vie = vie;
+class Soldier {
+  // LifeTime commence à 100, on décrément et à 0, life = 0
+  init(life, lifeTime) {
+    this.life = life;
     this.lifeTime = lifeTime;
     setTimeout(() => {
-      this.vie = 0;
+      this.life = 0;
     }, lifeTime * 1000);
   }
 
-  degat(degatSoldat) {
-    this.vie = this.vie - degatSoldat;
+  Damage(soldierDamage) {
+    this.life = this.life - soldierDamage;
   }
 }
 
-module.exports = {Soldat};
+module.exports = {Soldier: Soldier};
