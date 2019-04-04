@@ -18,7 +18,7 @@ class Troop {
     attaquerTroup(troupCible) {
         var nbSoldatT1 = this.troup.length;
         var nbSoldatT2 = troupCible.troup.length;
-        checkLife();
+        this.checkLife();
 
         if (nbSoldatT1 >= nbSoldatT2) {
 
@@ -83,7 +83,7 @@ class Troop {
     attaquerVille(villeCible) {
         var nbSoldatT1 = this.troup.length;
         var nbSoldatT2 = villeCible.troopVille.length;
-        checkLife();
+        this.checkLife();
 
         if (nbSoldatT1 >= nbSoldatT2) {
 
@@ -101,7 +101,7 @@ class Troop {
                     this.troup[n].degat(25);
                     n = n + 1;
                 }
-                checkLife();
+                this.checkLife();
                 console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
 
             } else {
@@ -130,7 +130,7 @@ class Troop {
                     this.troup[n].degat(25);
                     n = n + 1;
                 }
-                checkLife();
+                this.checkLife();
                 console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
 
             }
@@ -161,11 +161,16 @@ class Troop {
         }
 
         checkLife(){
-
-                for( var i = troup.length-1; i--;){
-                    if ( troup[i].vie <= 0 ) list.splice(i, 1);
+                var nbrMort=0;
+                for( var i = this.troup.length-1;i > 0; i--){
+                    if ( this.troup[i].vie <= 0 ) {
+                        list.splice(i, 1);
+                        nbrMort++;
+                    }
                 }
-            }
+            console.log("Il y a eu "+ nbrMort +" morts");
+
+        }
 
 
 }
