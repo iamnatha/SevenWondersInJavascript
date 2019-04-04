@@ -14,9 +14,6 @@ class Troop {
         }
     }
 
-    set() {
-
-    }
 
     attaquerTroup(troupCible) {
         var nbSoldatT1 = this.troup.length;
