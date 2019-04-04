@@ -18,6 +18,7 @@ class Troop {
     attaquerTroup(troupCible) {
         var nbSoldatT1 = this.troup.length;
         var nbSoldatT2 = troupCible.troup.length;
+        checkLife();
 
         if (nbSoldatT1 >= nbSoldatT2) {
 
@@ -82,6 +83,7 @@ class Troop {
     attaquerVille(villeCible) {
         var nbSoldatT1 = this.troup.length;
         var nbSoldatT2 = villeCible.troopVille.length;
+        checkLife();
 
         if (nbSoldatT1 >= nbSoldatT2) {
 
@@ -138,7 +140,7 @@ class Troop {
         defendreVille()
         {
             console.log("Victoire de la ville qui se fait attaquer!!!!");
-
+            checkLife();
             var n = 0;
             var poucentageBlesse = this.troup.length * Math.random();
 
@@ -159,6 +161,7 @@ class Troop {
         }
 
         checkLife(){
+
                 for( var i = troup.length-1; i--;){
                     if ( troup[i].vie <= 0 ) list.splice(i, 1);
                 }
