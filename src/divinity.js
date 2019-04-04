@@ -4,8 +4,8 @@ const EventEmitter = require('events');
 class Divinity {
   constructor(name, timeFactor) {
     this.name_ = name || 'UNKDIVINITY';
-    this.corn_ = 0;
-    this.gold_ = 0;
+    this.corn_ = 10;
+    this.gold_ = 10;
     this.worldEvents_ = new EventEmitter();
     this.timeFactor_ = timeFactor || 1000;
   }

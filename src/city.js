@@ -4,6 +4,11 @@ class City {
         this.divinityVille = divinity;
         this.commerceVille = buisness;
         this.troopVille = troop;
+
+        this.divinityVille.worldEvents.on('favor', (g) => {
+          this.commerceVille.gold += g.gold;
+          this.commerceVille.corn += g.corn;
+        });
     }
 
     get divinity() {
