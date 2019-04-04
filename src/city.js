@@ -1,41 +1,28 @@
 class City {
-  constructor(name) {
-    this.name_ = name || 'UNKCITY';
-    this.corn_ = 0;
-    this.gold_ = 0;
-  }
 
-  setDivinity(divinity) {
-    this.divinity_ = divinity;
-    this.divinity.init();
-    this.divinity.worldEvents.on('favor', gift => {
-      this.receiveGift(gift);
-    });
-    this.divinity.worldEvents.on('blessing', gift => {
-      this.receiveGift(gift);
-    });
-  }
+    init(divinity, buisness, troop){
+        this.divinityVille = divinity;
+        this.commerceVille = buisness;
+        this.troopVille = troop;
 
-  receiveGift(gift) {
-    this.corn_ += 'corn' in gift ? gift.corn : 0;
-    this.gold_ += 'gold' in gift ? gift.gold : 0;
-  }
+        this.divinityVille.worldEvents.on('favor', (g) => {
+          this.commerceVille.gold += g.gold;
+          this.commerceVille.corn += g.corn;
+        });
+    }
 
-  get corn() {
-    return this.corn_;
-  }
+    get divinity() {
+        return this.divinityVille;
+    }
 
-  get gold() {
-    return this.gold_;
-  }
+    get buisness() {
+        return this.commerceVille;
+    }
 
-  get name() {
-    return this.name_;
-  }
+    get troop() {
+        return this.troopVille;
+    }
 
-  get divinity() {
-    return this.divinity_;
-  }
 }
 
 module.exports = {City};
