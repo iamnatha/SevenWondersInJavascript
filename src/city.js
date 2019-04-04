@@ -1,8 +1,8 @@
 class City {
 
-    init(divinity, commerce, troop){
+    init(divinity, buisness, troop){
         this.divinityVille = divinity;
-        this.commerceVille = commerce;
+        this.commerceVille = buisness;
         this.troopVille = troop;
 
         this.divinityVille.worldEvents.on('favor', (g) => {
@@ -15,7 +15,7 @@ class City {
         return this.divinityVille;
     }
 
-    get commerce() {
+    get buisness() {
         return this.commerceVille;
     }
 
