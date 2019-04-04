@@ -70,6 +70,9 @@ console.log(
 
 // racheter troupes
 
-//
+    console.log("Vengance de la ville 2: Ville 2 pille la ville 1");
+    ville1.troopVille.attaquerTroup(ville1.troopVille);
+    ville2.troopVille.attaquerVille(ville1);
+    ville2.troop.AjouterSoldat(200);
 
 // }

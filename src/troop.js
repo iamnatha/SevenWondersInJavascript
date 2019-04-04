@@ -74,8 +74,28 @@ class Troop {
     const nbSoldatT2 = villeCible.troopVille.length;
     checkLife();
 
-    if (nbSoldatT1 >= nbSoldatT2) {
-      var rapportDeForce = nbSoldatT2 / nbSoldatT1;
+    attaquerTroup(troupCible) {
+        var nbSoldatT1 = this.troup.length;
+        var nbSoldatT2 = troupCible.troup.length;
+        this.checkLife();
+
+        if (nbSoldatT1 >= nbSoldatT2) {
+
+            var rapportDeForce = nbSoldatT2 / nbSoldatT1;
+
+            if (rapportDeForce < Math.random()) { //
+                console.log("Victoire de la troupe qui attaque!!!!");
+                troupCible.troup = [];
+                var n = 0;
+                var poucentageBlesse = this.troup.length * Math.random();
+
+                while (n < poucentageBlesse) {
+                    this.troup[n].degat(25);
+                    n = n + 1;
+                }
+
+
+            } else {
 
       if (rapportDeForce < Math.random()) {
         //
@@ -91,31 +111,60 @@ class Troop {
           n += 1;
         }
 
-        checkLife();
-        console.log(
-          poucentageBlesse + "% des troupes ont été blessé pendant l'attaque"
-        );
-      } else {
-        defendreVille();
-      }
-    } else {
-      var rapportDeForce = nbSoldatT2 / nbSoldatT1;
+    attaquerVille(villeCible) {
+        var nbSoldatT1 = this.troup.length;
+        var nbSoldatT2 = villeCible.troopVille.length;
+        this.checkLife();
 
-      if (rapportDeForce < Math.random()) {
-        //
+        if (nbSoldatT1 >= nbSoldatT2) {
 
-        defendreVille();
-      } else {
-        console.log('Victoire de la troupe qui attaque!!!!');
+            var rapportDeForce = nbSoldatT2 / nbSoldatT1;
 
-        var n = 0;
-        var poucentageBlesse = this.troup.length * Math.random();
+            if (rapportDeForce < Math.random()) { //
+                console.log("Victoire de la troupe qui attaque!!!!");
 
-        villeCible.commerceVille.seFairePiller(10);
+                var n = 0;
+                var poucentageBlesse = this.troup.length * Math.random();
 
-        while (n < poucentageBlesse) {
-          this.troup[n].degat(25);
-          n += 1;
+                villeCible.commerceVille.seFairePiller(10);
+
+                while (n < poucentageBlesse) {
+                    this.troup[n].degat(25);
+                    n = n + 1;
+                }
+                this.checkLife();
+                console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
+
+            } else {
+
+                defendreVille();
+
+            }
+        } else {
+
+            var rapportDeForce = nbSoldatT2 / nbSoldatT1;
+
+            if (rapportDeForce < Math.random()) { //
+
+                defendreVille();
+
+            } else {
+
+                console.log("Victoire de la troupe qui attaque!!!!");
+
+                var n = 0;
+                var poucentageBlesse = this.troup.length * Math.random();
+
+                villeCible.commerceVille.seFairePiller(10);
+
+                while (n < poucentageBlesse) {
+                    this.troup[n].degat(25);
+                    n = n + 1;
+                }
+                this.checkLife();
+                console.log(poucentageBlesse + "% des troupes ont été blessé pendant l'attaque");
+
+            }
         }
 
         checkLife();
@@ -132,15 +181,17 @@ class Troop {
     let n = 0;
     const poucentageBlesse = this.troup.length * Math.random();
 
-    while (n < poucentageBlesse) {
-      this.troup[n].degat(25);
-      n += 1;
-    }
+        checkLife(){
+                var nbrMort=0;
+                for( var i = this.troup.length-1;i > 0; i--){
+                    if ( this.troup[i].vie <= 0 ) {
+                        list.splice(i, 1);
+                        nbrMort++;
+                    }
+                }
+            console.log("Il y a eu "+ nbrMort +" morts");
 
-    console.log(
-      poucentageBlesse + "% des troupes ont été blessé pendant l'attaque"
-    );
-  }
+        }
 
   AjouterSoldat(NbrSoldatAjouter, ville) {
     let n = 0;
