@@ -28,7 +28,7 @@ class Troop {
 
             if (rapportDeForce < Math.random()) { //
                 console.log("Victoire de la troupe qui attaque!!!!");
-                troupCible.troup = null;
+                troupCible.troup = [];
                 var n = 0;
                 var poucentageBlesse = this.troup.length * Math.random();
 
@@ -41,7 +41,7 @@ class Troop {
             } else {
 
                 console.log("Victoire de la troupe qui se fait attaquer!!!!");
-                this.troup = null;
+                this.troup = [];
                 var n = 0;
                 var poucentageBlesse = troupCible.troup.length * Math.random();
 
@@ -57,7 +57,7 @@ class Troop {
             var rapportDeForce = nbSoldatT1 / nbSoldatT2;
             if (rapportDeForce < Math.random()) {
                 console.log("Victoire de la troupe qui se fait attaquer!!!!");
-                this.troup = null;
+                this.troup = [];
                 var n = 0;
                 var poucentageBlesse = troupCible.troup.length * Math.random();
 
@@ -69,7 +69,7 @@ class Troop {
             } else {
 
                 console.log("Victoire de la troupe qui attaque!!!!");
-                troupCible.troup = null;
+                troupCible.troup = [];
                 var n = 0;
                 var poucentageBlesse = this.troup.length * Math.random();
 
