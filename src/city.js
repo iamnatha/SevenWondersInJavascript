@@ -6,16 +6,18 @@ class City {
         this.troopVille = troop;
     }
 
-    get divinityVille() {
-        return this.divinity;
+    get divinity() {
+        return this.divinityVille;
     }
 
-    get commerceVille() {
-        return this.commerce;
+    get commerce() {
+        return this.commerceVille;
     }
 
-    get troopVille() {
-        return this.troop;
+    get troop() {
+        return this.troopVille;
     }
 
 }
+
+module.exports = {City};

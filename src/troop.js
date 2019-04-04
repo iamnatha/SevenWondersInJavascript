@@ -1,4 +1,4 @@
-const {Soldat} = require('Soldat');
+const {Soldat} = require('../src/Soldat');
 
 class Troop {
 
@@ -9,7 +9,7 @@ class Troop {
 
         var n = 1;
         while (n <= nbSoldat) {
-            this.troup.push(Object.create(Soldat(100, 100)));
+            this.troup.push(new Soldat(100, 100));
             n = n + 1;
         }
     }
@@ -20,7 +20,7 @@ class Troop {
 
     attaquerTroup(troupCible) {
         var nbSoldatT1 = this.troup.length;
-        var nbSoldatT2 = troupCible.troop.length;
+        var nbSoldatT2 = troupCible.troup.length;
 
         if (nbSoldatT1 >= nbSoldatT2) {
 
@@ -84,7 +84,7 @@ class Troop {
 
     attaquerVille(villeCible) {
         var nbSoldatT1 = this.troup.length;
-        var nbSoldatT2 = troupCible.troop.length;
+        var nbSoldatT2 = villeCible.troopVille.length;
 
         if (nbSoldatT1 >= nbSoldatT2) {
 
@@ -131,10 +131,10 @@ class Troop {
 
             }
         }
+    }
 
         defendreVille()
         {
-
             console.log("Victoire de la ville qui se fait attaquer!!!!");
 
             var n = 0;
@@ -147,5 +147,6 @@ class Troop {
 
         }
 
-    }
 }
+
+module.exports = {Troop};

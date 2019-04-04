@@ -7,8 +7,8 @@
     "chai": "^4.2.0",
     "mocha": "^6.0.2"
   },
-  "script": {
-  "start": "node index.js",
+  "scripts": {
+  "start": "node src/index.js",
   "test": "mocha"
   },
   "xo": {

@@ -1,16 +1,16 @@
 class Business {
 
     init(corn, gold){
-        this.corn = corn;
+        this.corn_ = corn;
         this.gold = gold;
     }
 
     get corn(){
-        return this.corn;
+        return this.corn_;
     }
 
     set corn(corn){
-        this.corn = corn;
+        this.corn_ = corn;
     }
 
     seFairePiller(ressourcePille){
@@ -22,16 +22,20 @@ class Business {
 
         if(Math.random() > 0.95){
             // Si les commercant se font attaquer
-            seFaireAttaquer(corn);
+            this.seFaireAttaquer(corn);
         } else{
             // Sinon
             // Petite fluctuation de marché
             if(Math.random() > 0.75) {
                 this.gold = this.gold + 2 *prixParRessource * corn;
                 Acheteur.gold = Acheteur.gold - 2 * prixParRessource * corn;
+                Acheteur.corn = Acheteur.corn + corn;
+                this.corn = this.corn - corn;
             } else{
                 this.gold = this.gold + prixParRessource * corn;
                 Acheteur.gold = Acheteur.gold - prixParRessource * corn;
+                Acheteur.corn = Acheteur.corn + corn;
+                this.corn = this.corn - corn;
             }
 
         }
@@ -58,3 +62,5 @@ class Business {
     }
 
 }
+
+module.exports = {Business};

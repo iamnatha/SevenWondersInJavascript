@@ -13,3 +13,5 @@ class Soldat{
 
 
 }
+
+module.exports = {Soldat};
