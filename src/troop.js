@@ -1,38 +1,40 @@
+const {Soldat} = require('Soldat');
+
 class Troop {
 
-    init(prixTroupe, vie, nbSoldat){
+    init(prixTroupe, vie, nbSoldat) {
         this.prixTroupe = prixTroupe;
         this.nbSoldat = nbSoldat;
         this.troup = [];
 
         var n = 1;
-        while(n <= nbSoldat){
+        while (n <= nbSoldat) {
             this.troup.push(Object.create(Soldat(100, 100)));
             n = n + 1;
         }
     }
 
-    set(){
+    set() {
 
     }
 
-    attaquerTroup(troupCible){
+    attaquerTroup(troupCible) {
         var nbSoldatT1 = this.troup.length;
         var nbSoldatT2 = troupCible.troop.length;
 
-        if(nbSoldatT1 >= nbSoldatT2){
+        if (nbSoldatT1 >= nbSoldatT2) {
 
             var rapportDeForce = nbSoldatT2 / nbSoldatT1;
 
-            if(rapportDeForce < Math.random()){ //
+            if (rapportDeForce < Math.random()) { //
                 console.log("Victoire de la troupe qui attaque!!!!");
                 troupCible.troup = null;
                 var n = 0;
-                var poucentageBlesse = this.troup.length * Math.random() ;
+                var poucentageBlesse = this.troup.length * Math.random();
 
-                while(n < poucentageBlesse){
+                while (n < poucentageBlesse) {
                     this.troup[n].degat(25);
-                    n = n  + 1;
+                    n = n + 1;
                 }
 
 
@@ -41,11 +43,11 @@ class Troop {
                 console.log("Victoire de la troupe qui se fait attaquer!!!!");
                 this.troup = null;
                 var n = 0;
-                var poucentageBlesse = troupCible.troup.length * Math.random() ;
+                var poucentageBlesse = troupCible.troup.length * Math.random();
 
-                while(n < poucentageBlesse){
+                while (n < poucentageBlesse) {
                     troupCible.troup[n].degat(25);
-                    n = n  + 1;
+                    n = n + 1;
                 }
 
             }
@@ -53,15 +55,15 @@ class Troop {
         } else {
 
             var rapportDeForce = nbSoldatT1 / nbSoldatT2;
-            if(rapportDeForce < Math.random()){
+            if (rapportDeForce < Math.random()) {
                 console.log("Victoire de la troupe qui se fait attaquer!!!!");
                 this.troup = null;
                 var n = 0;
-                var poucentageBlesse = troupCible.troup.length * Math.random() ;
+                var poucentageBlesse = troupCible.troup.length * Math.random();
 
-                while(n < poucentageBlesse){
+                while (n < poucentageBlesse) {
                     troupCible.troup[n].degat(25);
-                    n = n  + 1;
+                    n = n + 1;
                 }
 
             } else {
@@ -69,23 +71,22 @@ class Troop {
                 console.log("Victoire de la troupe qui attaque!!!!");
                 troupCible.troup = null;
                 var n = 0;
-                var poucentageBlesse = this.troup.length * Math.random() ;
+                var poucentageBlesse = this.troup.length * Math.random();
 
-                while(n < poucentageBlesse){
+                while (n < poucentageBlesse) {
                     this.troup[n].degat(25);
-                    n = n  + 1;
+                    n = n + 1;
                 }
 
             }
         }
     }
 
-    // On s'arrete ici
-    attaquerVille(villeCible){
+    attaquerVille(villeCible) {
         var nbSoldatT1 = this.troup.length;
         var nbSoldatT2 = troupCible.troop.length;
 
-        if(nbSoldatT1 >= nbSoldatT2) {
+        if (nbSoldatT1 >= nbSoldatT2) {
 
             var rapportDeForce = nbSoldatT2 / nbSoldatT1;
 
@@ -95,33 +96,56 @@ class Troop {
                 var n = 0;
                 var poucentageBlesse = this.troup.length * Math.random();
 
+                villeCible.commerceVille.seFairePiller(10);
 
                 while (n < poucentageBlesse) {
                     this.troup[n].degat(25);
                     n = n + 1;
                 }
+            } else {
+
+                defendreVille();
+
+            }
+        } else {
+
+            var rapportDeForce = nbSoldatT2 / nbSoldatT1;
+
+            if (rapportDeForce < Math.random()) { //
+
+                defendreVille();
+
+            } else {
+
+                console.log("Victoire de la troupe qui attaque!!!!");
+
+                var n = 0;
+                var poucentageBlesse = this.troup.length * Math.random();
+
+                villeCible.commerceVille.seFairePiller(10);
+
+                while (n < poucentageBlesse) {
+                    this.troup[n].degat(25);
+                    n = n + 1;
+                }
+
             }
         }
+
+        defendreVille()
+        {
+
+            console.log("Victoire de la ville qui se fait attaquer!!!!");
+
+            var n = 0;
+            var poucentageBlesse = this.troup.length * Math.random();
+
+            while (n < poucentageBlesse) {
+                this.troup[n].degat(25);
+                n = n + 1;
+            }
+
+        }
+
     }
-
-    defendreVille(){
-
-    }
-
-}
-
-class Soldat{
-
-    // lifeTime commence à 100, on décrément et à 0, vie = 0
-    init(vie, lifeTime){
-        this.vie = vie;
-        this.lifeTime = lifeTime;
-    }
-
-    degat(degatSoldat){
-        this.vie = this.vie - degatSoldat;
-    }
-
-
-
 }

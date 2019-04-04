@@ -5,6 +5,19 @@ class Business {
         this.gold = gold;
     }
 
+    get corn(){
+        return this.corn;
+    }
+
+    set corn(corn){
+        this.corn = corn;
+    }
+
+    seFairePiller(ressourcePille){
+        this.corn = this.corn - ressourcePille;
+        this.gold = this.gold - ressourcePille;
+    }
+
     vendre(corn, prixParRessource, Acheteur){
 
         if(Math.random() > 0.95){
