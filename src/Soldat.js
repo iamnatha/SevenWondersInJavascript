@@ -4,14 +4,15 @@ class Soldat{
     init(vie, lifeTime){
         this.vie = vie;
         this.lifeTime = lifeTime;
+        setTimeout(() => {
+            this.vie = 0;
+        }, lifeTime * 1000);
     }
 
     degat(degatSoldat){
         this.vie = this.vie - degatSoldat;
 
     }
-
-
 
 }
 

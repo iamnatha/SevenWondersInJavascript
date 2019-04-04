@@ -44,11 +44,4 @@ ville2.init(divinity2, commerce2, troup2);
     ville2.troopVille.attaquerVille(ville1);
     ville2.troop.AjouterSoldat(200);
 
-setTimeout(() => {
-    console.log("Ressource de la ville 1: " + ville1.commerceVille.corn + " corns et " + ville1.commerceVille.gold + " golds");
-    console.log("Ressource de la ville 2: " + ville2.commerceVille.corn + " corns et " + ville2.commerceVille.gold + " golds");
-
-    ville1.divinity.endWorld();
-    ville2.divinity.endWorld();
-}, 2000)
 // }
