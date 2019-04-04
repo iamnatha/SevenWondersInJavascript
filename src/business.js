@@ -32,6 +32,21 @@ class Business {
                 Acheteur.corn = Acheteur.corn + corn;
                 this.corn = this.corn - corn;
                 console.log("Le prix du blé a augmenté. Il coûte actuellement: "+ 2 * prixParRessource +" gold")
+                console.log("  " +
+                    "      _.-'~~`~~'-._\n" +
+                    "     .'`  B   E   R  `'.\n" +
+                    "    / I               T \\\n" +
+                    "  /`       .-'~\"-.       `\\\n" +
+                    " ; L      / `-    \\      Y ;\n" +
+                    ";        />  `.  -.|        ;\n" +
+                    "|       /_     '-.__)       |\n" +
+                    "|        |-  _.' \\ |        |\n" +
+                    ";        `~~;     \\\\        ;\n" +
+                    " ;  INGODWE /      \\\\)P    ;\n" +
+                    "  \\  TRUST '.___.-'`\"     /\n" +
+                    "   `\\                   /`\n" +
+                    "     '._   1 9 9 7   _.'\n" +
+                    "        `'-..,,,..-'`")
             } else{
                 this.gold = this.gold + prixParRessource * corn;
                 Acheteur.gold = Acheteur.gold - prixParRessource * corn;
