@@ -68,3 +68,5 @@ Sujet_TP.pdf
 
 #DS_store
 .DS_Store
+src/.DS_Store
+test/.DS_Store
