@@ -64,4 +64,4 @@ typings/
 Sujet_TP.pdf
 
 #webstorm ide
-.idea/
+.idea/*
