@@ -65,3 +65,6 @@ Sujet_TP.pdf
 
 #webstorm ide
 .idea/*
+
+#DS_store
+.DS_Store
