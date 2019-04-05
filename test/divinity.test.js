@@ -1,9 +1,5 @@
 const chai = require('chai');
-const mocha = require('mocha');
-const it = mocha.it;
-const describe = mocha.describe;
-const before = mocha.before;
-const after = mocha.after;
+const {it, describe, before, after} = require('mocha');
 const chaiAsPromised = require('chai-as-promised');
 const {Divinity} = require('../src/divinity');
 
