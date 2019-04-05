@@ -8,9 +8,9 @@ class Soldier {
     }, lifeTime * 1000);
   }
 
-  Damage(soldierDamage) {
+  damage(soldierDamage) {
     this.life = this.life - soldierDamage;
   }
 }
 
-module.exports = {Soldier: Soldier};
+module.exports = {Soldier};

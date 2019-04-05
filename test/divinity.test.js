@@ -1,4 +1,5 @@
 const chai = require('chai');
+const mocha = require('mocha');
 const chaiAsPromised = require('chai-as-promised');
 const {Divinity} = require('../src/divinity');
 

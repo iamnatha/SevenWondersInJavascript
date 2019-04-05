@@ -1,8 +1,8 @@
-const {Soldier} = require('../src/soldat');
+const {Soldier} = require('../src/soldier');
 
 class Troop {
   init(TroopPrice, life, nbSoldier) {
-    this.TroopPrice = TroopPrice;
+    this.troopPrice = TroopPrice;
     this.nbSoldier = nbSoldier;
     this.troop = [];
 
@@ -13,145 +13,145 @@ class Troop {
     }
   }
 
-  TroopAttack(TargetTroop) {
+  troopAttack(targetTroop) {
     const nbSoldierT1 = this.troop.length;
-    const nbSoldierT2 = TargetTroop.troop.length;
+    const nbSoldierT2 = targetTroop.troop.length;
     this.checkLife();
 
     if (nbSoldierT1 >= nbSoldierT2) {
-      const BalanceOfPower = nbSoldierT2 / nbSoldierT1;
+      const balanceOfPower = nbSoldierT2 / nbSoldierT1;
 
-      if (BalanceOfPower < Math.random()) {
+      if (balanceOfPower < Math.random()) {
         //
         console.log('Victoire de la troupe qui attaque!!!!');
-        TargetTroop.troop = [];
+        targetTroop.troop = [];
         let n = 0;
-        const InjuredPercentage = this.troop.length * Math.random();
+        const injuredPercentage = this.troop.length * Math.random();
 
-        while (n < InjuredPercentage) {
-          this.troop[n].Damage(25);
+        while (n < injuredPercentage) {
+          this.troop[n].damage(25);
           n += 1;
         }
       } else {
         console.log('Victoire de la troupe qui se fait attaquer!!!!');
         this.troop = [];
         let n = 0;
-        const InjuredPercentage = TargetTroop.troop.length * Math.random();
+        const injuredPercentage = targetTroop.troop.length * Math.random();
 
-        while (n < InjuredPercentage) {
-          TargetTroop.troop[n].Damage(25);
+        while (n < injuredPercentage) {
+          targetTroop.troop[n].damage(25);
           n += 1;
         }
       }
     } else {
-      const BalanceOfPower = nbSoldierT1 / nbSoldierT2;
-      if (BalanceOfPower < Math.random()) {
+      const balanceOfPower = nbSoldierT1 / nbSoldierT2;
+      if (balanceOfPower < Math.random()) {
         console.log('Victoire de la troupe qui se fait attaquer!!!!');
         this.troop = [];
         let n = 0;
-        const InjuredPercentage = TargetTroop.troop.length * Math.random();
+        const injuredPercentage = targetTroop.troop.length * Math.random();
 
-        while (n < InjuredPercentage) {
-          TargetTroop.troop[n].Damage(25);
+        while (n < injuredPercentage) {
+          targetTroop.troop[n].damage(25);
           n += 1;
         }
       } else {
         console.log('Victoire de la troupe qui attaque!!!!');
-        TargetTroop.troop = [];
+        targetTroop.troop = [];
         let n = 0;
-        const InjuredPercentage = this.troop.length * Math.random();
+        const injuredPercentage = this.troop.length * Math.random();
 
-        while (n < InjuredPercentage) {
-          this.troop[n].Damage(25);
+        while (n < injuredPercentage) {
+          this.troop[n].damage(25);
           n += 1;
         }
       }
     }
   }
 
-  CityAttack(TargetCity) {
+  cityAttack(targetCity) {
     const nbSoldierT1 = this.troop.length;
-    const nbSoldierT2 = TargetCity.CityTroop.length;
+    const nbSoldierT2 = targetCity.cityTroop.length;
     this.checkLife();
 
     if (nbSoldierT1 >= nbSoldierT2) {
-      const BalanceOfPower = nbSoldierT2 / nbSoldierT1;
+      const balanceOfPower = nbSoldierT2 / nbSoldierT1;
 
-      if (BalanceOfPower < Math.random()) {
+      if (balanceOfPower < Math.random()) {
         //
         console.log('Victoire de la troupe qui attaque!!!!');
 
         let n = 0;
-        const BalanceOfPower = this.troop.length * Math.random();
+        const balanceOfPower = this.troop.length * Math.random();
 
-        TargetCity.CityBuisness.BeLooted(10);
+        targetCity.cityBuisness.beLooted(10);
 
-        while (n < BalanceOfPower) {
-          this.troop[n].Damage(25);
+        while (n < balanceOfPower) {
+          this.troop[n].damage(25);
           n += 1;
         }
 
         this.checkLife();
         console.log(
-          BalanceOfPower + "% des troupes ont été blessé pendant l'attaque"
+          balanceOfPower + "% des troupes ont été blessé pendant l'attaque"
         );
       } else {
-        this.CityDefense();
+        this.cityDefense();
       }
     } else {
-      const BalanceOfPower = nbSoldierT2 / nbSoldierT1;
+      const balanceOfPower = nbSoldierT2 / nbSoldierT1;
 
-      if (BalanceOfPower < Math.random()) {
+      if (balanceOfPower < Math.random()) {
         //
 
-        this.CityDefense();
+        this.cityDefense();
       } else {
         console.log('Victoire de la troupe qui attaque!!!!');
 
         let n = 0;
-        const InjuredPercentage = this.troop.length * Math.random();
+        const injuredPercentage = this.troop.length * Math.random();
 
-        TargetCity.CityBuisness.BeLooted(10);
+        targetCity.cityBuisness.beLooted(10);
 
-        while (n < InjuredPercentage) {
-          this.troop[n].Damage(25);
+        while (n < injuredPercentage) {
+          this.troop[n].damage(25);
           n += 1;
         }
 
         this.checkLife();
         console.log(
-          InjuredPercentage + "% des troupes ont été blessé pendant l'attaque"
+          injuredPercentage + "% des troupes ont été blessé pendant l'attaque"
         );
       }
     }
   }
 
-  CityDefense() {
+  cityDefense() {
     console.log('Victoire de la ville qui se fait attaquer!!!!');
     this.checkLife();
     let n = 0;
-    const InjuredPercentage = this.troop.length * Math.random();
+    const injuredPercentage = this.troop.length * Math.random();
 
-    while (n < InjuredPercentage) {
-      this.troop[n].Damage(25);
+    while (n < injuredPercentage) {
+      this.troop[n].damage(25);
       n += 1;
     }
 
     console.log(
-      (InjuredPercentage / this.troop.length) * 100 +
+      (injuredPercentage / this.troop.length) * 100 +
         "% des troupes ont été blessé pendant l'attaque"
     );
   }
 
-  AddSoldier(NbrSoldierToAdd, city) {
-    if (city.CityBuisness.gold < NbrSoldierToAdd * this.TroopPrice) return;
+  addSoldier(nbrSoldierToAdd, city) {
+    if (city.cityBuisness.gold < nbrSoldierToAdd * this.troopPrice) return;
     let n = 0;
-    while (n <= NbrSoldierToAdd) {
+    while (n <= nbrSoldierToAdd) {
       this.troop.push(new Soldier(100, 100));
       n += 1;
     }
 
-    city.CityBuisness.gold -= NbrSoldierToAdd * this.TroopPrice;
+    city.cityBuisness.gold -= nbrSoldierToAdd * this.troopPrice;
   }
 
   checkLife() {

@@ -32,7 +32,7 @@ const city2 = new City();
 city1.init(divinity1, Business1, troop1, 'ville 1');
 city2.init(divinity2, Business2, troop2, 'ville 2');
 
-const CheckCity = () => {
+const checkCity = () => {
   return (
     Business1.corn > 0 &&
     Business1.gold > 0 &&
@@ -40,7 +40,7 @@ const CheckCity = () => {
   );
 };
 
-const RandomCity = (villeA, villeB) => {
+const randomCity = (villeA, villeB) => {
   if (Math.random() > 0.5) {
     return [villeA, villeB];
   }
@@ -48,47 +48,48 @@ const RandomCity = (villeA, villeB) => {
   return [villeB, villeA];
 };
 
-const GameOver = () => {
-
-  console.log("\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀\n" +
-      "██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼\n" +
-      "██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀\n" +
-      "██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼\n" +
-      "███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼\n" +
-      "██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼\n" +
-      "██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼\n" +
-      "██┼┼┼┼┼██┼┼┼██┼┼█▀┼┼██┼┼┼┼██┼┼┼┼┼██┼\n" +
-      "███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼\n" +
-      "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n")
+const gameOver = () => {
+  console.log(
+    '\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀\n' +
+      '██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼\n' +
+      '██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀\n' +
+      '██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼\n' +
+      '███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼\n' +
+      '██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼\n' +
+      '██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼\n' +
+      '██┼┼┼┼┼██┼┼┼██┼┼█▀┼┼██┼┼┼┼██┼┼┼┼┼██┼\n' +
+      '███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼\n' +
+      '┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n'
+  );
   console.log('Fin de la partie apres ' + chapter + ' chapitres');
   console.log(
     'Ressource de la ville 1: ' +
-      city1.CityBuisness.corn +
+      city1.cityBuisness.corn +
       ' corns et ' +
-      city1.CityBuisness.gold +
+      city1.cityBuisness.gold +
       ' golds'
   );
   console.log(
     'Ressource de la ville 2: ' +
-      city2.CityBuisness.corn +
+      city2.cityBuisness.corn +
       ' corns et ' +
-      city2.CityBuisness.gold +
+      city2.cityBuisness.gold +
       ' golds'
   );
   city1.divinity.endWorld();
@@ -98,17 +99,17 @@ const GameOver = () => {
 let chapter = 1;
 const main = setInterval(() => {
   console.log('\n********** Chapitre ' + chapter + ' **********');
-  let [CityA, CityB] = RandomCity(city1, city2);
+  let [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' attaque ' + CityB.name);
-  CityA.CityTroop.CityAttack(CityB);
-  if (CheckCity()) {
+  CityA.cityTroop.cityAttack(CityB);
+  if (checkCity()) {
     console.log(
       'Ressource de ' +
         CityB.name +
         ': ' +
-        CityB.CityBuisness.corn +
+        CityB.cityBuisness.corn +
         ' corns et ' +
-        CityB.CityBuisness.gold +
+        CityB.cityBuisness.gold +
         ' golds'
     );
     console.log(
@@ -116,46 +117,44 @@ const main = setInterval(() => {
     );
   } else {
     clearInterval(main);
-    GameOver();
+    gameOver();
     return;
   }
 
-  [CityA, CityB] = RandomCity(city1, city2);
+  [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' vend du corn a ' + CityB.name);
-  CityA.CityBuisness.ToSell(15, 10, CityB.CityBuisness);
-  if (CheckCity()) {
+  CityA.cityBuisness.toSell(15, 10, CityB.cityBuisness);
+  if (checkCity()) {
     console.log(
       'Ressource de la ville 1: ' +
-        city1.CityBuisness.corn +
+        city1.cityBuisness.corn +
         ' corns et ' +
-        city1.CityBuisness.gold +
+        city1.cityBuisness.gold +
         ' golds'
     );
     console.log(
       'Ressource de la ville 2: ' +
-        city2.CityBuisness.corn +
+        city2.cityBuisness.corn +
         ' corns et ' +
-        city2.CityBuisness.gold +
+        city2.cityBuisness.gold +
         ' golds'
     );
   } else {
     clearInterval(main);
-    GameOver();
+    gameOver();
     return;
   }
 
-  [CityA, CityB] = RandomCity(city1, city2);
-  console.log(
-    'Vengance de ' + CityA.name + ': ' + CityB.name + ' est pillée'
-  );
-  CityA.CityTroop.TroopAttack(CityB.troop);
-  [CityA, CityB] = RandomCity(city1, city2);
+  [CityA, CityB] = randomCity(city1, city2);
+  console.log('Vengance de ' + CityA.name + ': ' + CityB.name + ' est pillée');
+  CityA.cityTroop.troopAttack(CityB.troop);
+  [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' recrute des troupes');
-  CityA.troop.AddSoldier(200, CityB);
+  CityA.troop.addSoldier(200, CityB);
 
-  if (!CheckCity()) {
+  if (!checkCity()) {
     clearInterval(main);
-    GameOver();
+    gameOver();
     return;
   }
 

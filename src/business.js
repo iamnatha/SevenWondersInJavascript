@@ -12,15 +12,15 @@ class Business {
     this.corn_ = corn;
   }
 
-  BeLooted(ressourcePille) {
+  beLooted(ressourcePille) {
     this.corn = this.corn - ressourcePille;
     this.gold = this.gold - ressourcePille;
   }
 
-  ToSell(corn, ResourcesPrice, Buyer) {
+  toSell(corn, ResourcesPrice, Buyer) {
     if (Math.random() > 0.5) {
       // Si les commercant se font attaquer
-      this.BeAttacked(corn);
+      this.beAttacked(corn);
     } else if (Math.random() > 0.75) {
       // Sinon
       // Petite fluctuation de marché
@@ -42,7 +42,7 @@ class Business {
     }
   }
 
-  ToBuy(corn, quantity, ResourcesPrice, Seller) {
+  toBuy(corn, quantity, ResourcesPrice, Seller) {
     // Petite fluctuation de marché
     if (Math.random() > 0.75) {
       this.gold = this.gold - 2 * ResourcesPrice * corn;
@@ -59,12 +59,10 @@ class Business {
     }
   }
 
-  BeAttacked(BuisnessCorn) {
+  beAttacked(BuisnessCorn) {
     this.corn = this.corn - BuisnessCorn;
     console.log(
-      'Ressource perdu pendant le voyage du commerce: ' +
-        BuisnessCorn +
-        ' corn'
+      'Ressource perdu pendant le voyage du commerce: ' + BuisnessCorn + ' corn'
     );
     console.log('Il vous reste donc ' + this.corn);
   }
