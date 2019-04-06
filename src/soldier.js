@@ -2,7 +2,6 @@ class Soldier {
   // LifeTime commence à 100, on décrément et à 0, life = 0
   constructor(life, lifeTime) {
     this.life = life;
-    this.lifeTime = lifeTime;
 
     this.aging = setTimeout(() => {
       this.life = 0;
@@ -10,7 +9,7 @@ class Soldier {
   }
 
   damage(soldierDamage) {
-    this.life = this.life - soldierDamage;
+    this.life -= soldierDamage;
   }
 
   kill() {

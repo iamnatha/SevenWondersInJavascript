@@ -62,16 +62,16 @@ const gameOver = () => {
   console.log('Fin de la partie apres ' + chapter + ' chapitres');
   console.log(
     'Ressource de la ville 1: ' +
-      city1.cityBuisness.corn +
+      city1.cityBusiness.corn +
       ' corns et ' +
-      city1.cityBuisness.gold +
+      city1.cityBusiness.gold +
       ' golds'
   );
   console.log(
     'Ressource de la ville 2: ' +
-      city2.cityBuisness.corn +
+      city2.cityBusiness.corn +
       ' corns et ' +
-      city2.cityBuisness.gold +
+      city2.cityBusiness.gold +
       ' golds'
   );
   city1.collapse();
@@ -93,9 +93,9 @@ const main = setInterval(() => {
       'Ressource de ' +
         CityB.name +
         ': ' +
-        CityB.cityBuisness.corn +
+        CityB.cityBusiness.corn +
         ' corns et ' +
-        CityB.cityBuisness.gold +
+        CityB.cityBusiness.gold +
         ' golds'
     );
     console.log(
@@ -109,20 +109,20 @@ const main = setInterval(() => {
 
   [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' vend du corn a ' + CityB.name);
-  CityA.cityBuisness.toSell(15, 10, CityB.cityBuisness);
+  CityA.cityBusiness.toSell(15, 10, CityB.cityBusiness);
   if (checkCity(city1) && checkCity(city2)) {
     console.log(
       'Ressource de la ville 1: ' +
-        city1.cityBuisness.corn +
+        city1.cityBusiness.corn +
         ' corns et ' +
-        city1.cityBuisness.gold +
+        city1.cityBusiness.gold +
         ' golds'
     );
     console.log(
       'Ressource de la ville 2: ' +
-        city2.cityBuisness.corn +
+        city2.cityBusiness.corn +
         ' corns et ' +
-        city2.cityBuisness.gold +
+        city2.cityBusiness.gold +
         ' golds'
     );
   } else {
