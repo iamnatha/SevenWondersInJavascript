@@ -20,11 +20,8 @@ const Business2 = new Business();
 Business1.init(1000, 1000);
 Business2.init(1000, 1000);
 
-const troop1 = new Troop();
-const troop2 = new Troop();
-
-troop1.init(20, 100, 50);
-troop2.init(20, 100, 70);
+const troop1 = new Troop(20, 100, 50);
+const troop2 = new Troop(20, 100, 70);
 
 const city1 = new City();
 const city2 = new City();
