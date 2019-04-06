@@ -18,12 +18,8 @@ const city2 = new City();
 city1.init(divinity1, Business1, troop1, 'ville 1');
 city2.init(divinity2, Business2, troop2, 'ville 2');
 
-const checkCity = () => {
-  return (
-    Business1.corn > 0 &&
-    Business1.gold > 0 &&
-    (Business2.corn > 0 && Business2.gold > 0)
-  );
+const checkCity = (city) => {
+  return city.business.gold >= 0 && city.business.corn >= 0;
 };
 
 const randomCity = (villeA, villeB) => {
@@ -92,7 +88,7 @@ const main = setInterval(() => {
   let [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' attaque ' + CityB.name);
   CityA.cityTroop.cityAttack(CityB);
-  if (checkCity()) {
+  if (checkCity(city1) && checkCity(city2)) {
     console.log(
       'Ressource de ' +
         CityB.name +
@@ -114,7 +110,7 @@ const main = setInterval(() => {
   [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' vend du corn a ' + CityB.name);
   CityA.cityBuisness.toSell(15, 10, CityB.cityBuisness);
-  if (checkCity()) {
+  if (checkCity(city1) && checkCity(city2)) {
     console.log(
       'Ressource de la ville 1: ' +
         city1.cityBuisness.corn +
@@ -142,7 +138,7 @@ const main = setInterval(() => {
   console.log(CityA.name + ' recrute des troupes');
   CityA.troop.addSoldier(200, CityB);
 
-  if (!checkCity()) {
+  if (!(checkCity(city1) && checkCity(city2))) {
     clearInterval(main);
     gameOver();
     return;
