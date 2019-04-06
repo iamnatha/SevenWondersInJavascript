@@ -18,7 +18,7 @@ const city2 = new City();
 city1.init(divinity1, Business1, troop1, 'ville 1');
 city2.init(divinity2, Business2, troop2, 'ville 2');
 
-const checkCity = (city) => {
+const checkCity = city => {
   return city.business.gold >= 0 && city.business.corn >= 0;
 };
 
@@ -74,8 +74,8 @@ const gameOver = () => {
       city2.cityBuisness.gold +
       ' golds'
   );
-  city1.divinity.endWorld();
-  city2.divinity.endWorld();
+  city1.collapse();
+  city2.collapse();
 };
 
 let chapter = 1;

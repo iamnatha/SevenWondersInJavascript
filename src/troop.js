@@ -34,7 +34,7 @@ class Troop {
         }
       } else {
         console.log('Victoire de la troupe qui se fait attaquer!!!!');
-        this.troop = [];
+        this.killTroop();
         let n = 0;
         const injuredPercentage = targetTroop.troop.length * Math.random();
 
@@ -47,7 +47,7 @@ class Troop {
       const balanceOfPower = nbSoldierT1 / nbSoldierT2;
       if (balanceOfPower < Math.random()) {
         console.log('Victoire de la troupe qui se fait attaquer!!!!');
-        this.troop = [];
+        this.killTroop();
         let n = 0;
         const injuredPercentage = targetTroop.troop.length * Math.random();
 
@@ -155,11 +155,17 @@ class Troop {
   }
 
   checkLife() {
-    for (let i = this.troop.length - 1; i > 0; i--) {
+    for (let i = this.troop.length - 1; i >= 0; i--) {
       if (this.troop[i].life <= 0) {
+        this.troop[i].kill();
         this.troop.splice(i, 1);
       }
     }
+  }
+
+  killTroop() {
+    this.troop.forEach(soldier => soldier.kill());
+    this.troop = [];
   }
 }
 

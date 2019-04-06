@@ -6,7 +6,7 @@ class City {
     this.name = name;
 
     divinity.init();
-    // initial offer for city creation
+    // Initial offer for city creation
     divinity.offeringCorn(10);
     divinity.offeringGold(10);
 
@@ -31,6 +31,11 @@ class City {
 
   get troop() {
     return this.cityTroop;
+  }
+
+  collapse() {
+    this.troop.killTroop();
+    this.divinity.endWorld();
   }
 }
 
