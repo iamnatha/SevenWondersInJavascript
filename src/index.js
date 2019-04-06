@@ -98,7 +98,11 @@ const gameOver = () => {
 
 let chapter = 1;
 const main = setInterval(() => {
-  console.log('\n********** Chapitre ' + chapter + ' **********');
+  console.log(
+    '\n****************************** Chapitre ' +
+      chapter +
+      ' ******************************\n'
+  );
   let [CityA, CityB] = randomCity(city1, city2);
   console.log(CityA.name + ' attaque ' + CityB.name);
   CityA.cityTroop.cityAttack(CityB);
@@ -158,5 +162,8 @@ const main = setInterval(() => {
     return;
   }
 
+  console.log(
+    '-----------------------------------------------------------------------------------------------------------------------------------------------'
+  );
   chapter += 1;
-}, 100);
+}, 450);
