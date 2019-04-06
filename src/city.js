@@ -5,6 +5,11 @@ class City {
     this.cityTroop = troop;
     this.name = name;
 
+    divinity.init();
+    // initial offer for city creation
+    divinity.offeringCorn(10);
+    divinity.offeringGold(10);
+
     this.cityDivinity.worldEvents.on('favor', g => {
       this.cityBuisness.gold += g.gold;
       this.cityBuisness.corn += g.corn;

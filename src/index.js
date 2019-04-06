@@ -6,14 +6,6 @@ const {City} = require('../src/city');
 const divinity1 = new Divinity('Divinity1');
 const divinity2 = new Divinity('Divinity2');
 
-divinity1.init();
-divinity1.offeringCorn(10);
-divinity1.offeringGold(10);
-
-divinity2.init();
-divinity2.offeringCorn(10);
-divinity2.offeringGold(10);
-
 const Business1 = new Business(1000, 1000);
 const Business2 = new Business(1000, 1000);
 
