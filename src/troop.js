@@ -5,7 +5,7 @@ class Troop {
     this.troopPrice = TroopPrice;
     this.troop = [];
 
-    for (let i=0;i < nbSoldier;i++) {
+    for (let i = 0; i < nbSoldier; i++) {
       this.troop.push(new Soldier(100, 100));
     }
   }
@@ -25,16 +25,14 @@ class Troop {
 
         const injuredPercentage = this.troop.length * Math.random();
         this.troop.forEach((soldier, index) => {
-          if (index < injuredPercentage)
-            soldier.damage(20);
+          if (index < injuredPercentage) soldier.damage(20);
         });
       } else {
         console.log('Victoire de la troupe qui se fait attaquer!!!!');
         this.killTroop();
         const injuredPercentage = targetTroop.length * Math.random();
         targetTroop.troop.forEach((soldier, index) => {
-          if (index < injuredPercentage)
-            soldier.damage(20);
+          if (index < injuredPercentage) soldier.damage(20);
         });
       }
     } else {
