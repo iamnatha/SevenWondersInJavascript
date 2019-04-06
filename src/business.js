@@ -1,7 +1,7 @@
 class Business {
   init(corn, gold) {
     this.corn_ = corn;
-    this.gold = gold;
+    this.gold_ = gold;
   }
 
   get corn() {
@@ -10,6 +10,14 @@ class Business {
 
   set corn(corn) {
     this.corn_ = corn;
+  }
+
+  get gold() {
+    return this.gold_;
+  }
+
+  set gold(gold) {
+    this.gold_ = gold;
   }
 
   beLooted(ressourcePille) {
