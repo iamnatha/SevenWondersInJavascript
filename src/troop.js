@@ -32,7 +32,7 @@ class Troop {
         console.log('Victoire de la troupe qui se fait attaquer!!!!');
         this.killTroop();
         const injuredPercentage = targetTroop.length * Math.random();
-        targetTroop.forEach((soldier, index) => {
+        targetTroop.troop.forEach((soldier, index) => {
           if (index < injuredPercentage)
             soldier.damage(20);
         });
