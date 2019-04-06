@@ -1,5 +1,5 @@
 class Business {
-  init(corn, gold) {
+  constructor(corn, gold) {
     this.corn_ = corn;
     this.gold_ = gold;
   }

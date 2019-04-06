@@ -14,11 +14,8 @@ divinity2.init();
 divinity2.offeringCorn(10);
 divinity2.offeringGold(10);
 
-const Business1 = new Business();
-const Business2 = new Business();
-
-Business1.init(1000, 1000);
-Business2.init(1000, 1000);
+const Business1 = new Business(1000, 1000);
+const Business2 = new Business(1000, 1000);
 
 const troop1 = new Troop(20, 100, 50);
 const troop2 = new Troop(20, 100, 70);
