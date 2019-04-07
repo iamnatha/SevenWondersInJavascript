@@ -1,5 +1,5 @@
 const chai = require('chai');
-const {it, describe, above} = require('mocha');
+const {it, describe} = require('mocha');
 const {City} = require('../src/city');
 const {Divinity} = require('../src/divinity');
 const {Business} = require('../src/business');
@@ -26,14 +26,14 @@ describe('city.js', () => {
 
       city.init(divinity, business);
 
-      // delay to wait for the divinity to receive the first offering of the city
-      await new Promise((resolve) => {
+      // Delay to wait for the divinity to receive the first offering of the city
+      await new Promise(resolve => {
         setTimeout(() => {
           resolve();
         }, 5);
       });
 
-      await new Promise((resolve) => {
+      await new Promise(resolve => {
         divinity.worldEvents.once('favor', () => {
           city.business.corn.should.be.above(1);
           city.business.gold.should.be.above(1);
@@ -41,7 +41,7 @@ describe('city.js', () => {
         });
       });
 
-      await new Promise((resolve) => {
+      await new Promise(resolve => {
         divinity.worldEvents.once('blessing', () => {
           city.business.corn.should.be.above(1000);
           city.business.gold.should.be.above(1000);
@@ -49,7 +49,7 @@ describe('city.js', () => {
         });
       });
 
-      await new Promise((resolve) => {
+      await new Promise(resolve => {
         divinity.worldEvents.once('retribution', () => {
           city.business.gold.should.be.above(0);
           resolve();
