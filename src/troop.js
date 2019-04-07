@@ -49,7 +49,7 @@ class Troop {
         }
       } else {
         console.log('Victoire de la troupe qui attaque!!!!');
-        targetTroop.troop = [];
+        this.killTroop();
         let n = 0;
         const injuredPercentage = this.troop.length * Math.random();
 
