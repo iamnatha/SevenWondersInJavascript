@@ -29,7 +29,7 @@ class Business {
     this.gold = this.gold - lootedResource;
   }
 
-  toSell(corn, resourcesPrice, Buyer) {
+  toSell(corn, resourcesPrice, buyer) {
     if (Math.random() > 0.5) {
       // Si les commercant se font attaquer
       this.beAttacked(corn);
@@ -37,8 +37,8 @@ class Business {
       // Sinon
       // Petite fluctuation de marché
       this.gold = this.gold + 2 * resourcesPrice * corn;
-      Buyer.gold -= 2 * resourcesPrice * corn;
-      Buyer.corn += corn;
+      buyer.gold -= 2 * resourcesPrice * corn;
+      buyer.corn += corn;
       this.corn = this.corn - corn;
       console.log(
         'Le prix du blé a augmenté. Il coûte actuellement: ' +
@@ -47,8 +47,8 @@ class Business {
       );
     } else {
       this.gold = this.gold + resourcesPrice * corn;
-      Buyer.gold -= resourcesPrice * corn;
-      Buyer.corn += corn;
+      buyer.gold -= resourcesPrice * corn;
+      buyer.corn += corn;
       this.corn = this.corn - corn;
       console.log('Le blé coûte actuellement: ' + resourcesPrice + ' gold');
     }
@@ -84,7 +84,7 @@ class Bankruptcy extends Error {
   constructor(business, ...params) {
     super(...params);
 
-    this.buisness = business;
+    this.business = business;
   }
 }
 
