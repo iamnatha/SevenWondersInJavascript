@@ -1,8 +1,8 @@
 const {Soldier} = require('../src/soldier');
 
 class Troop {
-  constructor(TroopPrice, life, nbSoldier) {
-    this.troopPrice = TroopPrice;
+  constructor(troopPrice, life, nbSoldier) {
+    this.troopPrice = troopPrice;
     this.troop = [];
 
     for (let i = 0; i < nbSoldier; i++) {
