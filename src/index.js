@@ -78,7 +78,7 @@ let chapter = 1;
 const main = setInterval(() => {
   try {
     console.log(
-        '\n****************************** Chapitre ' +
+      '\n****************************** Chapitre ' +
         chapter +
         ' ******************************\n'
     );
@@ -86,7 +86,7 @@ const main = setInterval(() => {
     console.log(cityA.name + ' attaque ' + cityB.name);
     cityA.cityTroop.cityAttack(cityB);
     console.log(
-        'Ressource de ' +
+      'Ressource de ' +
         cityB.name +
         ': ' +
         cityB.cityBusiness.corn +
@@ -95,21 +95,21 @@ const main = setInterval(() => {
         ' golds'
     );
     console.log(
-        'Il font la paix et maintenant ville 1 et ville 2, font du commerce ensemble.'
+      'Il font la paix et maintenant ville 1 et ville 2, font du commerce ensemble.'
     );
 
     [cityA, cityB] = randomCity(city1, city2);
     console.log(cityA.name + ' vend du corn a ' + cityB.name);
     cityA.cityBusiness.toSell(15, 10, cityB.cityBusiness);
     console.log(
-        'Ressource de la ville 1: ' +
+      'Ressource de la ville 1: ' +
         city1.cityBusiness.corn +
         ' corns et ' +
         city1.cityBusiness.gold +
         ' golds'
     );
     console.log(
-        'Ressource de la ville 2: ' +
+      'Ressource de la ville 2: ' +
         city2.cityBusiness.corn +
         ' corns et ' +
         city2.cityBusiness.gold +
@@ -117,22 +117,24 @@ const main = setInterval(() => {
     );
 
     [cityA, cityB] = randomCity(city1, city2);
-    console.log('Vengance de ' + cityA.name + ': ' + cityB.name + ' est pillée');
+    console.log(
+      'Vengance de ' + cityA.name + ': ' + cityB.name + ' est pillée'
+    );
     cityA.cityTroop.troopAttack(cityB.troop);
     [cityA, cityB] = randomCity(city1, city2);
     console.log(cityA.name + ' recrute des troupes');
     cityA.troop.addSoldier(200, cityB);
 
     console.log(
-        '-----------------------------------------------------------------------------------------------------------------------------------------------'
+      '-----------------------------------------------------------------------------------------------------------------------------------------------'
     );
     chapter += 1;
-  } catch (e) {
-    if (e instanceof Bankruptcy) {
+  } catch (error) {
+    if (error instanceof Bankruptcy) {
       clearInterval(main);
       gameOver();
     } else {
-      throw e;
+      throw error;
     }
   }
 }, 450);

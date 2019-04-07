@@ -1,6 +1,6 @@
 class City {
   constructor(name) {
-    this.name_ = name
+    this.name_ = name;
   }
 
   init(divinity, business, troop) {
