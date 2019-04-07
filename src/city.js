@@ -1,9 +1,12 @@
 class City {
-  init(divinity, business, troop, name) {
+  constructor(name) {
+    this.name_ = name
+  }
+
+  init(divinity, business, troop) {
     this.cityDivinity = divinity;
     this.cityBusiness = business;
     this.cityTroop = troop;
-    this.name = name;
 
     divinity.init();
     // Initial offer for city creation
@@ -19,6 +22,14 @@ class City {
       this.cityBusiness.gold += g.gold;
       this.cityBusiness.corn += g.corn;
     });
+
+    this.cityDivinity.worldEvents.on('retribution', gold => {
+      this.cityBusiness.gold += gold;
+    });
+  }
+
+  get name() {
+    return this.name_;
   }
 
   get divinity() {

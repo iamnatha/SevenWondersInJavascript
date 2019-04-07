@@ -10,6 +10,8 @@ class Business {
 
   set corn(corn) {
     this.corn_ = corn;
+    if (corn < 0)
+      throw new Bankruptcy(this, 'Lack of corn caused bankruptcy of business');
   }
 
   get gold() {
@@ -18,6 +20,8 @@ class Business {
 
   set gold(gold) {
     this.gold_ = gold;
+    if (gold < 0)
+      throw new Bankruptcy(this, 'Lack of gold caused bankruptcy of business');
   }
 
   beLooted(lootedResource) {
@@ -76,4 +80,12 @@ class Business {
   }
 }
 
-module.exports = {Business};
+class Bankruptcy extends Error {
+  constructor(business, ...params) {
+    super(...params);
+
+    this.buisness = business;
+  }
+}
+
+module.exports = {Business, Bankruptcy};

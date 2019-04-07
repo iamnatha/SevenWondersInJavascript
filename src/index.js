@@ -1,4 +1,4 @@
-const {Business} = require('../src/business');
+const {Business, Bankruptcy} = require('../src/business');
 const {Divinity} = require('../src/divinity');
 const {Troop} = require('../src/troop');
 const {City} = require('../src/city');
@@ -6,21 +6,17 @@ const {City} = require('../src/city');
 const divinity1 = new Divinity('Divinity1');
 const divinity2 = new Divinity('Divinity2');
 
-const Business1 = new Business(1000, 1000);
-const Business2 = new Business(1000, 1000);
+const business1 = new Business(1000, 1000);
+const business2 = new Business(1000, 1000);
 
 const troop1 = new Troop(20, 100, 50);
 const troop2 = new Troop(20, 100, 70);
 
-const city1 = new City();
-const city2 = new City();
+const city1 = new City('ville 1');
+const city2 = new City('ville 2');
 
-city1.init(divinity1, Business1, troop1, 'ville 1');
-city2.init(divinity2, Business2, troop2, 'ville 2');
-
-const checkCity = city => {
-  return city.business.gold >= 0 && city.business.corn >= 0;
-};
+city1.init(divinity1, business1, troop1);
+city2.init(divinity2, business2, troop2);
 
 const randomCity = (villeA, villeB) => {
   if (Math.random() > 0.5) {
@@ -80,72 +76,63 @@ const gameOver = () => {
 
 let chapter = 1;
 const main = setInterval(() => {
-  console.log(
-    '\n****************************** Chapitre ' +
-      chapter +
-      ' ******************************\n'
-  );
-  let [CityA, CityB] = randomCity(city1, city2);
-  console.log(CityA.name + ' attaque ' + CityB.name);
-  CityA.cityTroop.cityAttack(CityB);
-  if (checkCity(city1) && checkCity(city2)) {
+  try {
     console.log(
-      'Ressource de ' +
-        CityB.name +
+        '\n****************************** Chapitre ' +
+        chapter +
+        ' ******************************\n'
+    );
+    let [cityA, cityB] = randomCity(city1, city2);
+    console.log(cityA.name + ' attaque ' + cityB.name);
+    cityA.cityTroop.cityAttack(cityB);
+    console.log(
+        'Ressource de ' +
+        cityB.name +
         ': ' +
-        CityB.cityBusiness.corn +
+        cityB.cityBusiness.corn +
         ' corns et ' +
-        CityB.cityBusiness.gold +
+        cityB.cityBusiness.gold +
         ' golds'
     );
     console.log(
-      'Il font la paix et maintenant ville 1 et ville 2, font du commerce ensemble.'
+        'Il font la paix et maintenant ville 1 et ville 2, font du commerce ensemble.'
     );
-  } else {
-    clearInterval(main);
-    gameOver();
-    return;
-  }
 
-  [CityA, CityB] = randomCity(city1, city2);
-  console.log(CityA.name + ' vend du corn a ' + CityB.name);
-  CityA.cityBusiness.toSell(15, 10, CityB.cityBusiness);
-  if (checkCity(city1) && checkCity(city2)) {
+    [cityA, cityB] = randomCity(city1, city2);
+    console.log(cityA.name + ' vend du corn a ' + cityB.name);
+    cityA.cityBusiness.toSell(15, 10, cityB.cityBusiness);
     console.log(
-      'Ressource de la ville 1: ' +
+        'Ressource de la ville 1: ' +
         city1.cityBusiness.corn +
         ' corns et ' +
         city1.cityBusiness.gold +
         ' golds'
     );
     console.log(
-      'Ressource de la ville 2: ' +
+        'Ressource de la ville 2: ' +
         city2.cityBusiness.corn +
         ' corns et ' +
         city2.cityBusiness.gold +
         ' golds'
     );
-  } else {
-    clearInterval(main);
-    gameOver();
-    return;
+
+    [cityA, cityB] = randomCity(city1, city2);
+    console.log('Vengance de ' + cityA.name + ': ' + cityB.name + ' est pillée');
+    cityA.cityTroop.troopAttack(cityB.troop);
+    [cityA, cityB] = randomCity(city1, city2);
+    console.log(cityA.name + ' recrute des troupes');
+    cityA.troop.addSoldier(200, cityB);
+
+    console.log(
+        '-----------------------------------------------------------------------------------------------------------------------------------------------'
+    );
+    chapter += 1;
+  } catch (e) {
+    if (e instanceof Bankruptcy) {
+      clearInterval(main);
+      gameOver();
+    } else {
+      throw e;
+    }
   }
-
-  [CityA, CityB] = randomCity(city1, city2);
-  console.log('Vengance de ' + CityA.name + ': ' + CityB.name + ' est pillée');
-  CityA.cityTroop.troopAttack(CityB.troop);
-  [CityA, CityB] = randomCity(city1, city2);
-  console.log(CityA.name + ' recrute des troupes');
-  CityA.troop.addSoldier(200, CityB);
-
-  if (!(checkCity(city1) && checkCity(city2))) {
-    clearInterval(main);
-    gameOver();
-    return;
-  }
-
-  console.log(
-    '-----------------------------------------------------------------------------------------------------------------------------------------------'
-  );
-  chapter += 1;
 }, 450);
