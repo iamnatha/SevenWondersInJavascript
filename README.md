@@ -5,9 +5,9 @@ RAZAFINDRABE Nathanaël
 DE MASSE Gregoire  
 AGOSTINI Arthur
 
-# Etape 1: Config projet et lancer le projet
+# Configuration du projet et lancement
 
-1. Installer yarn
+1. Installer [yarn](https://yarnpkg.com/)
 
 2. `$ git clone https://github.com/iamnatha/TP_JS.git`
 
@@ -15,9 +15,9 @@ AGOSTINI Arthur
 
 4. `$ yarn start`
 
-# Etape 2: Explication du projet
+# Explication du projet
 
-Chaque ville posséde une divinity, une troupe et un commerce.
+Chaque ville posséde une divinité, une troupe et un commerce.
 
 Vous trouverez:  
 - une classe divinity  :pray:  
@@ -26,14 +26,17 @@ Vous trouverez:
 - une classe soldat    :trollface:  
 - une classe city      :european_castle:  
     
-La classe businness contient le nombre d'or et le nombre de mais.
-Elle permet de ToSell, d'ToBuy du mais avec un risque de se faire attaquer. 
+La classe Businness contient le nombre d'or et le nombre de mais.
+Elle permet d'acheter et de vendre du mais avec un risque de se faire attaquer et de perdre les ressources. 
 
-La classe troop contient une liste de soldat et elle est capable d'attaquer des troop advserde, 
-attaquer une ville adverse et défendre leurs ville respective.
+La classe Troop contient une liste de soldat et elle est capable d'attaquer des troupes adverse, 
+d'attaquer une ville adverse et défendre sa ville.
 
-La classe soldat défini un soldat avec une life et une lifetime pour la veillesse 
+La classe Soldier défini un soldat avec des points de vie et une durée de vie au bout de laquelle il meurt de vieillesse. 
 
-La classe city contient une troupe, un business et une divinity.
+La classe Divinity génère des ressources. La quantité est relative à la quantité d'offrandes que lui a consacré la ville.
+
+
+La classe City contient une troupe, un business et une divinity.
 
 
