@@ -1,4 +1,4 @@
-# Travaux pratique Javascript
+# Travaux pratiques Javascript
 TP Semestre 2 :zap:
 
 RAZAFINDRABE Nathanaël   
