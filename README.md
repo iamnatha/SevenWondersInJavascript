@@ -17,6 +17,8 @@ AGOSTINI Arthur
 
 # Explication du projet
 
+Réalisation du jeu Seven Wonders (en console)
+
 Chaque ville posséde une divinité, une troupe et un commerce.
 
 Vous trouverez:  
